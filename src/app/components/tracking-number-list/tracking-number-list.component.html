@@ -1,0 +1,7 @@
+<div *ngFor="let trackingNumber of trackingNumbers">
+    <div class="row">
+      <span class="col-md-4">{{trackingNumber.trackingNumber}}</span>
+      <span class="col-md-1.5"><button (click)="track(trackingNumber.value)" (click)="onSelected(trackingNumber)">Track Shipment</button></span>
+      <span><button (click)=delete(trackingNumber._id,trackingNumber._rev,trackingNumber.value)>x</button></span>
+    </div>
+</div>
