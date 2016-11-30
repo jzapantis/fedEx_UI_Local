@@ -7,22 +7,22 @@ import { AppComponent } from './app.component';
 import { TrackingComponent } from './pages/tracking/tracking.component';
 import { TrackingService } from './pages/tracking/tracking.service';
 import { HeaderComponent } from './components/header/header.component';
-import { TrackingNumberListComponent } from './components/tracking-number-list/tracking-number-list.component';
-import { TrackingNumberListService } from './components/tracking-number-list/tracking-number-list.service';
+// import { TrackingNumberListComponent } from './components/tracking-number-list/tracking-number-list.component';
+// import { TrackingNumberListService } from './components/tracking-number-list/tracking-number-list.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackingComponent,
-    HeaderComponent,
-    TrackingNumberListComponent
+    HeaderComponent
+    // TrackingNumberListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [TrackingService, TrackingNumberListService],
+  providers: [TrackingService/*, TrackingNumberListService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

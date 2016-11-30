@@ -3,17 +3,10 @@
     <button (click)="add(trackingNumber.value); trackingNumber.value=''">Add</button>
     <button (click)="loadAll()">Load</button>
 </div>
-<!--<div class="row">
-    <div class="col-md-9">
-        <h1>
-            Tracking Numbers
-        </h1>
-        <app-tracking-number-list [trackingNumbers]="trackingNumbers" (trackingNumberSelected)="$event"></app-tracking-number-list>
+<div *ngFor="let trackingNumber of trackingNumbers">
+    <div class="row">
+      <span class="col-md-4">{{trackingNumber.trackingNumber}}</span>
+      <span class="col-md-1.5"><button (click)="track(trackingNumber.value)" (click)="onSelected(trackingNumber)">Track Shipment</button></span>
+      <span><button (click)=delete(trackingNumber._id,trackingNumber._rev,trackingNumber.value)>x</button></span>
     </div>
-    <div class="col-md-3">
-        <h1>
-            Tracking Details
-        </h1>
-        <app-tracking-details [slectedTrackingNumber]="slectedTrackingNumber"></app-tracking-details>
-    </div>
-</div>-->
+</div>
