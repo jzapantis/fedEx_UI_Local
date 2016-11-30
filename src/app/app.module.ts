@@ -10,6 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
 // import { TrackingNumberListComponent } from './components/tracking-number-list/tracking-number-list.component';
 // import { TrackingNumberListService } from './components/tracking-number-list/tracking-number-list.service';
 
+// 3rd Party Modules
+// import {DataTableModule} from "angular2-datatable";
+
 @NgModule({
   declarations: [
     AppComponent,

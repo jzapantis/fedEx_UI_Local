@@ -15,7 +15,6 @@ export class TrackingService {
   private trackingResponse = {};
   private insertMessage = {};
   private body = {};
-  private deleteMessage = {};
 
   private FedExUrl: string;
   private headers: Headers;
@@ -36,7 +35,7 @@ export class TrackingService {
       .map(response => response.json())
       .subscribe(data => { // data can be any name
         console.log(data);
-        this.initTrackingNumber = data.docs;
+        this.initTrackingNumber = data;
       }, error => console.log('Could not load the existing tracking numbers.'));
   }
 
@@ -45,9 +44,9 @@ export class TrackingService {
     return this.initTrackingNumber; // Whatever is being returned must match the structure of status[]
   }
   //////////////////////////////
-  add(shipmentID) {
+  add(addedTrackingNumbers) {
 
-    let body = { trackingNumber: shipmentID };
+    let body = { trackingNumbers: addedTrackingNumbers };
 
     console.log("The Tracking Number being added: ", body);
 
@@ -61,8 +60,8 @@ export class TrackingService {
       });
   }
 
-  addTrackingNumber(shipmentID) {
-    this.add(shipmentID);
+  addTrackingNumber(addedTrackingNumbers) {
+    this.add(addedTrackingNumbers);
     return this.insertMessage;
   }
 
