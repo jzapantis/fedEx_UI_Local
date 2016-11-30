@@ -20,7 +20,7 @@ export class TrackingService {
   private headers: Headers;
 
   constructor(private _http: Http) {
-    this.FedExUrl = 'http://localhost:6007/';
+    this.FedExUrl = 'http://localhost:6001/';
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }

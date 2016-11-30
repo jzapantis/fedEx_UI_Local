@@ -1,7 +1,10 @@
-<div>
+<div class="form-horizontal">
     <label>Add Tracking Number:</label> <input #trackingNumber />
-    <button (click)="add(trackingNumber.value); trackingNumber.value=''">Add</button>
-    <button (click)="loadAll()">Load</button>
+    <span>
+        <button class="btn btn-default" (click)="add(trackingNumber.value); trackingNumber.value=''">Add</button>
+        <button class="btn btn-default" (click)="loadAll()">Load</button><span>...or load a file directly:</span>
+    </span>
+    <input class="form-control" type="file" id="myFile" >
 </div>
 <!--<div *ngFor="let trackingNumber of trackingNumbers">
     <div class="row">
