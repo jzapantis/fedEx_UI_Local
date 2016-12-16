@@ -14,6 +14,8 @@ export class TrackingService {
   private initTrackingNumber = [];
   private trackingResponse = {};
   private insertMessage = {};
+  private deleteMessage = {};
+
   private body = {};
 
   private FedExUrl: string;
@@ -63,6 +65,33 @@ export class TrackingService {
   addTrackingNumber(addedTrackingNumbers) {
     this.add(addedTrackingNumbers);
     return this.insertMessage;
+  }
+  ////////////////////////////
+  delete(docIDNum, trackingNumber) {
+
+    let body = {
+      deleteDoc: docIDNum,
+      trackingNumber: trackingNumber
+    };
+
+    console.log("The Tracking Number being deleted: ", trackingNumber);
+    this._http.post(this.FedExUrl + "delete", body, { headers: this.headers })
+      .map(response => response.json())
+      .subscribe(
+      res => { // status can be any name
+        this.deleteMessage = JSON.stringify(res);
+      }, error => {
+        console.log('Could not add this tracking number.');
+        console.log(error);
+      },
+      () => {
+        console.log("Complete!")
+      });
+  }
+
+  deleteTrackingNumber(docIDNum, trackingNumber) {
+    this.delete(docIDNum, trackingNumber);
+    return this.deleteMessage;
   }
 
 }

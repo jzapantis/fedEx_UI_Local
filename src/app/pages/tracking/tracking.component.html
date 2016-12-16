@@ -27,8 +27,8 @@
             <tr *ngFor="let trackingNumber of trackingNumbers">
                 <td>{{trackingNumber.TrackingNumber}}</td>
                 <td>{{trackingNumber.StatusUpdateTime}}</td>
-                <td><button (click)=delete(trackingNumber._id,trackingNumber.value)>Delete</button></td>
-                <td><button (click)=delete(trackingNumber._id,trackingNumber._rev,trackingNumber.value)>Archive</button></td>
+                <td><button (click)=delete(trackingNumber.id,trackingNumber.TrackingNumber)>Delete</button></td>
+                <td><button (click)=delete(trackingNumber.id)>Archive</button></td>
             </tr>
         </tbody>
     </table>
