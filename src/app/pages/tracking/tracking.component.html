@@ -28,7 +28,7 @@
                 <td>{{trackingNumber.TrackingNumber}}</td>
                 <td>{{trackingNumber.StatusUpdateTime}}</td>
                 <td><button (click)=delete(trackingNumber.id,trackingNumber.TrackingNumber)>Delete</button></td>
-                <td><button (click)=delete(trackingNumber.id)>Archive</button></td>
+                <td><button (click)=archive(trackingNumber.TrackingNumber)>Archive</button></td>
             </tr>
         </tbody>
     </table>

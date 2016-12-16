@@ -93,5 +93,31 @@ export class TrackingService {
     this.delete(docIDNum, trackingNumber);
     return this.deleteMessage;
   }
+  ////////////////////////////
+  archive(trackingNumber) {
+
+    let body = {
+      trackingNumbers: trackingNumber
+    };
+
+    console.log("The Tracking Number being deleted: ", trackingNumber);
+    this._http.post(this.FedExUrl + "archive", body, { headers: this.headers })
+      .map(response => response.json())
+      .subscribe(
+      res => { // status can be any name
+        this.deleteMessage = JSON.stringify(res);
+      }, error => {
+        console.log('Could not add this tracking number.');
+        console.log(error);
+      },
+      () => {
+        console.log("Complete!")
+      });
+  }
+
+  archiveTrackingNumber(trackingNumber) {
+    this.archive(trackingNumber);
+    return this.deleteMessage;
+  }
 
 }

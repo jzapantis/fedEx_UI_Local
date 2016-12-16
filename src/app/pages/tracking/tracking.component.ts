@@ -14,6 +14,7 @@ export class TrackingComponent implements OnInit {
   trackingNumbers = [];
   insertMessage = {};
   deleteMessage = {};
+  archiveMessage = {};
 
   constructor(private trackShipment: TrackingService) { }
 
@@ -27,8 +28,10 @@ export class TrackingComponent implements OnInit {
     this.insertMessage = this.trackShipment.addTrackingNumber(shipmentID);
   }
   delete(docIDNum, trackingNumber) {
-    console.log(docIDNum)
     this.deleteMessage = this.trackShipment.deleteTrackingNumber(docIDNum, trackingNumber);
+  }
+  archive(trackingNumber) {
+    this.archiveMessage = this.trackShipment.archiveTrackingNumber(trackingNumber);
   }
 
 }
